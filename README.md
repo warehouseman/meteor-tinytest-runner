@@ -14,27 +14,27 @@ It's made using [makeself](http://stephanepeter.com/makeself/) by Stéphane Pete
 ### Installing
 For a first try, **before running it in your project**, deposit ```meteor-tinytest-runner.run``` in an empty temporary directory like so:
 
-     yourself@yourpc:~/projects/tryOutMTRInstaller$ tree
-     .
-     └── meteor-tinytest-runner.run
-      
-     0 directories, 1 file
-     yourself@yourpc:~/projects/tryOutMTRInstaller$
+    yourself@yourpc:~/projects$ mkdir -p tryMTRInst
+    yourself@yourpc:~/projects$ cd tryMTRInst
+    yourself@yourpc:~/projects/tryMTRInst$ wget https://raw.githubusercontent.com/warehouseman/meteor-tinytest-runner/master/meteor-tinytest-runner.run
+    yourself@yourpc:~/projects/tryMTRInst$ chmod a+x meteor-tinytest-runner.run
 
-Execute the installer with...
 
-   ./meteor-tinytest-runner.run
+Now execute the installer with...
+
+    ./meteor-tinytest-runner.run
+
 
 ... and you ought to see ...
 
-    yourself@yourpc:~/projects/tryOutMTRInstaller$ ./meteor-tinytest-runner.run
+    yourself@yourpc:~/projects/tryMTRInst$ ./meteor-tinytest-runner.run
     Verifying archive integrity... All good.
     Uncompressing Installing meteor-tinytest-runner  100%
     Installing meteor-tinytest-runner in current directory --
-               /home/yourself/projects/tryOutMTRInstaller.
-    yourself@yourpc:~/projects/tryOutMTRInstaller$
-    yourself@yourpc:~/projects/tryOutMTRInstaller$
-    yourself@yourpc:~/projects/tryOutMTRInstaller$ tree
+               /home/yourself/projects/tryMTRInst.
+    yourself@yourpc:~/projects/tryMTRInst$
+    yourself@yourpc:~/projects/tryMTRInst$ # sudo apt-get -y install tree
+    yourself@yourpc:~/projects/tryMTRInst$ tree
     .
     ├── example_circle.yml
     └── tests
@@ -45,7 +45,7 @@ Execute the installer with...
             └── test-package.sh
 
     2 directories, 5 files
-    yourself@yourpc:~/projects/tryOutMTRInstaller$
+    yourself@yourpc:~/projects/tryMTRInst$
 
 **A warning** : the installer will overwrite any files named like those above
 
@@ -63,14 +63,14 @@ To uninstall, execute ...
 
 ... and you should see ...
 
-    yourself@yourpc:~/projects/tryOutMTRInstaller$
-    yourself@yourpc:~/projects/tryOutMTRInstaller$ ./tests/tinyTests/remove-meteor-tinytest-runner.sh
+    yourself@yourpc:~/projects/tryMTRInst$
+    yourself@yourpc:~/projects/tryMTRInst$ ./tests/tinyTests/remove-meteor-tinytest-runner.sh
     Purging meteor-tinytest-runner from this filesystem.
-    yourself@yourpc:~/projects/tryOutMTRInstaller$ tree
+    yourself@yourpc:~/projects/tryMTRInst$ tree
     .
     
     0 directories, 0 files
-    yourself@yourpc:~/projects/tryOutMTRInstaller$
+    yourself@yourpc:~/projects/tryMTRInst$
 
 The uninstaller script does **not** remove the directories ```tests``` or ```tinyTests``` unless they are completely empty.
 
@@ -94,7 +94,7 @@ To help out there is a script called ```rebuild-meteor-tinytest-runner-installer
      #  Eg:
      #  -rwxrwxr-x 1 yourself yourself 70390 Aug  4 19:48 meteor-tinytest-runner/meteor-tinytest-runner.run
      # Copy the builder
-     cp rebuild-meteor-tinytest-runner-installer.sh .
+     cp meteor-tinytest-runner/rebuild-meteor-tinytest-runner-installer.sh .
      # Run it.
      ./rebuild-meteor-tinytest-runner-installer.sh
      # Again, note the date and time of the installer

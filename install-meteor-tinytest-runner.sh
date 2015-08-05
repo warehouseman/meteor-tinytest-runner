@@ -9,6 +9,5 @@
 export THIS=meteor-tinytest-runner
 echo "Installing ${THIS} in current directory -- $(pwd)."
 cd $(dirname $0)
-pwd
 rm -f ${THIS}.run
 rm -f install-meteor-tinytest-runner.sh
