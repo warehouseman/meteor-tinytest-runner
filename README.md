@@ -3,7 +3,7 @@
 ## Introduction
 These small scripts provide you with everything you need to tinytest one, or all, of the packages in a Meteor app, **from the command line** with results delivered **on the command line**.
 
-You'll need that capability when you go to use a continuous integration system such as CircleCi.  A sample script ````circle.yml``` is included for running the scripts in [CircleCI](https://circleci.com/about).
+You'll need that capability when you go to use a continuous integration system such as CircleCi.  A sample script ```circle.yml``` is included for running the scripts in [CircleCI](https://circleci.com/about).
 
 ## What it is.
 It's a ```bash``` installer.  It's only been tested on Ubuntu, but it's quite generic, so it should work fine on a Mac too, and maybe CygWin.
@@ -14,19 +14,18 @@ It's made using [makeself](http://stephanepeter.com/makeself/) by Stéphane Pete
 ### Installing
 For a first try, **before running it in your project**, try the following commands:
 
-# Have Meteor create an application skeleton
-meteor create tryMTRInst
-# Step in to it
-cd tryMTRInst
-# Have Meteor create a package skeleton
-meteor create --package you:your-pkg
-# Get Meteor Tinytest Runner
-wget https://raw.githubusercontent.com/warehouseman/meteor-tinytest-runner/
-master/meteor-tinytest-runner.run
-# Execute it
-sh meteor-tinytest-runner.run
-# Watch it run the package skeleton's default tests
-./tests/tinyTests/test-all.sh
+    # Have Meteor create an application skeleton
+    meteor create tryMTRInst
+    # Step in to it
+    cd tryMTRInst
+    # Have Meteor create a package skeleton
+    meteor create --package you:your-pkg
+    # Get Meteor Tinytest Runner
+    wget https://raw.githubusercontent.com/warehouseman/meteor-tinytest-runner/master/meteor-tinytest-runner.run
+    # Execute it
+    sh meteor-tinytest-runner.run
+    # Watch it run the package skeleton's default tests
+    ./tests/tinyTests/test-all.sh
 
 You should see the following :
 
@@ -78,7 +77,7 @@ You should see the following :
     yourself@yourpc:~/projects/tryMTRInst$
 
 
-Using a file browser in the application directory you see that the installer added the following files:
+Using a file browser in the application directory you willl see that the installer added the following files:
 
     yourself@yourpc:~/projects/tryMTRInst$ tree
     .
@@ -138,7 +137,7 @@ To help out there is a script called ```rebuild-meteor-tinytest-runner-installer
     ls -l meteor-tinytest-runner/meteor-tinytest-runner.run
     #  Eg:
     #  -rwxrwxr-x 1 yourself yourself 70390 Aug  4 19:48 meteor-tinytest-runner/meteor-tinytest-runner.run
-    # Copy the builder
+    # Copy the builder to the parent directory
     cp meteor-tinytest-runner/rebuild-meteor-tinytest-runner-installer.sh .
     # Run it.
     sh ./rebuild-meteor-tinytest-runner-installer.sh
