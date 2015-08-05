@@ -121,6 +121,20 @@ To uninstall, execute ...
 
 The uninstaller script does **not** remove the directories ```tests``` or ```tinyTests``` unless they are completely empty.
 
+## Building in CircleCI
+This test runner really aims to be a CircleCI quickstart. To see it in action :
+
+1. create a blank project in GitHub
+2. get going with a CircleCI account linked to your GitHub account
+3. instruct CircleCI to watch for changes in the blank project
+4. clone the blank project to your machine
+5. copy into the cloned app directory everything from the app ```tryMTRInst``` that you created above
+6. rename ```example_circle.yml``` to ```circle.yml```
+7. commit to GitHub
+8. watch the build start automatically in CircleCi
+
+The first build will take about a minute.  However, the build script checks for cached installations of Meteor and of Selenium WebDriver, and skips rebuilding when it finds them.  So, subsequent builds will run in about 45 seconds.
+
 ## Recreating the file "meteor-tinytest-runner.run"
 Here is the specific ```makeself``` command used to build ```meteor-tinytest-runner.run```  ...
 
