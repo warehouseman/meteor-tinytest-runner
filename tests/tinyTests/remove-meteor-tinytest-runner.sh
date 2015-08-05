@@ -1,4 +1,5 @@
 #!/bin/bash
+#
 echo "Purging meteor-tinytest-runner from this filesystem."
 cd $(dirname $0)
 rm -fr ../../example_circle.yml
