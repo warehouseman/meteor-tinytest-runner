@@ -17,18 +17,18 @@ dependencies:
     - ~/node_modules
   # Dependencies of the build run before CircleCI's inferred commands
   pre:
-    # Install WebDriver
+    # Install  Meteor
+    - mkdir -p ~/.meteor
+    # If Meteor is already cached, do not need to build it again.
+    - if [ ! -e ~/.meteor/meteor ]; then curl https://install.meteor.com | /bin/sh; fi
+    # Now install WebDriver
     - mkdir -p ~/node_modules
     # If WebDriver is already cached, do not need to build it again.
     - if [ ! -d ~/node_modules/selenium-webdriver/ ]; then npm install --prefix ~ selenium-webdriver; else echo "Selenium Webdriver seems to be cached"; fi;
     # Have symlink to a cached directory
     - ln -s ~/node_modules node_modules
-    # Now install  Starrynight
-    - mkdir -p ~/.meteor
-    # If Meteor is already cached, do not need to build it again.
-    - if [ ! -e ~/.meteor/meteor ]; then curl https://install.meteor.com | /bin/sh; fi
 
 test:
-  # Test that replace CircleCI's inferred tests
+  # Tests that replace CircleCI's inferred tests
   override:
     - tests/test-all.sh

@@ -5,8 +5,11 @@ These small scripts provide you with everything you need to tinytest one, or all
 
 You'll need that capability when you go to use a continuous integration system such as CircleCi.  A sample script ```circle.yml``` is included for running the scripts in [CircleCI](https://circleci.com/about).
 
-## What it is.
+## What is it?
 It's a ```bash``` installer.  It's only been tested on Ubuntu, but it's quite generic, so it should work fine on a Mac too, and maybe CygWin.
+
+All of the test-runner capability is forked from [tozd/meteor-test-runner
+](tozd/meteor-test-runner)
 
 It's made using [makeself](http://stephanepeter.com/makeself/) by Stéphane Peter (megastep at megastep.org) and includes an embedded uninstaller.
 
