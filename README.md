@@ -17,21 +17,19 @@ For a first try, **before running it in your project**, deposit ```meteor-tinyte
     yourself@yourpc:~/projects$ mkdir -p tryMTRInst
     yourself@yourpc:~/projects$ cd tryMTRInst
     yourself@yourpc:~/projects/tryMTRInst$ wget https://raw.githubusercontent.com/warehouseman/meteor-tinytest-runner/master/meteor-tinytest-runner.run
-    yourself@yourpc:~/projects/tryMTRInst$ chmod a+x meteor-tinytest-runner.run
 
 
 Now execute the installer with...
 
-    ./meteor-tinytest-runner.run
+    sh meteor-tinytest-runner.run
 
 
 ... and you ought to see ...
 
-    yourself@yourpc:~/projects/tryMTRInst$ ./meteor-tinytest-runner.run
+    yourself@yourpc:~/projects/tryMTRInst$ sh meteor-tinytest-runner.run
     Verifying archive integrity... All good.
     Uncompressing Installing meteor-tinytest-runner  100%
-    Installing meteor-tinytest-runner in current directory --
-               /home/yourself/projects/tryMTRInst.
+    Installing meteor-tinytest-runner in current directory -- /home/yourself/projects/tryMTRInst.
     yourself@yourpc:~/projects/tryMTRInst$
     yourself@yourpc:~/projects/tryMTRInst$ # sudo apt-get -y install tree
     yourself@yourpc:~/projects/tryMTRInst$ tree
@@ -75,7 +73,7 @@ To uninstall, execute ...
 The uninstaller script does **not** remove the directories ```tests``` or ```tinyTests``` unless they are completely empty.
 
 ## Recreating the file : meteor-tinytest-runner.run
-The specific ```makeself``` command used to build ```meteor-tinytest-runner.run``` is  ...
+Here is the specific ```makeself``` command used to build ```meteor-tinytest-runner.run```  ...
 
     makeself --current . meteor-tinytest-runner.run "Installing meteor-tinytest-runner" ./install-meteor-tinytest-runner.sh
 
@@ -83,19 +81,19 @@ The specific ```makeself``` command used to build ```meteor-tinytest-runner.run`
 
 To help out there is a script called ```rebuild-meteor-tinytest-runner-installer.sh```, but it is intended to be run in **the parent directory** of ```meteor-tinytest-runner``` So follow these steps :
 
-     # Create a test directory and step into it.
-     mkdir -p checkItzOk
-     # Step into it.
-     cd checkItzOk
-     # Clone meteor-tinytest-runner.
-     git clone git@github.com:warehouseman/meteor-tinytest-runner.git
-     # Note the date and time of the installer
-     ls -l meteor-tinytest-runner/meteor-tinytest-runner.run
-     #  Eg:
-     #  -rwxrwxr-x 1 yourself yourself 70390 Aug  4 19:48 meteor-tinytest-runner/meteor-tinytest-runner.run
-     # Copy the builder
-     cp meteor-tinytest-runner/rebuild-meteor-tinytest-runner-installer.sh .
-     # Run it.
-     ./rebuild-meteor-tinytest-runner-installer.sh
-     # Again, note the date and time of the installer
-     ls -l meteor-tinytest-runner/meteor-tinytest-runner.run
+    # Create a test directory and step into it.
+    mkdir -p checkItzOk
+    # Step into it.
+    cd checkItzOk
+    # Clone meteor-tinytest-runner.
+    git clone git@github.com:warehouseman/meteor-tinytest-runner.git
+    # Note the date and time of the installer
+    ls -l meteor-tinytest-runner/meteor-tinytest-runner.run
+    #  Eg:
+    #  -rwxrwxr-x 1 yourself yourself 70390 Aug  4 19:48 meteor-tinytest-runner/meteor-tinytest-runner.run
+    # Copy the builder
+    cp meteor-tinytest-runner/rebuild-meteor-tinytest-runner-installer.sh .
+    # Run it.
+    sh ./rebuild-meteor-tinytest-runner-installer.sh
+    # Again, note the date and time of the installer
+    ls -l meteor-tinytest-runner/meteor-tinytest-runner.run
