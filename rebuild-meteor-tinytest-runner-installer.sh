@@ -8,6 +8,7 @@ cd ./meteor-tinytest-runner_bk/
 rm -f LICENSE
 rm -f README.md
 rm -f rebuild-meteor-tinytest-runner-installer.sh
+rm -f meteor-tinytest-runner.run
 makeself --current . meteor-tinytest-runner.run "Installing meteor-tinytest-runner" ./install-meteor-tinytest-runner.sh
 chmod a+x meteor-tinytest-runner.run
 cp meteor-tinytest-runner.run ../tryMTRInst/
