@@ -1,4 +1,18 @@
-var webdriver = require('selenium-webdriver');
+var webdriver = null;
+try {
+   webdriver = require('selenium-webdriver');
+}
+catch (e) {
+   console.log(e.message);
+   if (e.message.indexOf("Cannot find module") > -1) {
+     console.log("Selenium Webdriver needs to be installed.  Please run :");
+     console.log("   npm install selenium-webdriver");
+   } else {
+     throw e;
+   }
+   process.exit(1);
+}
+
 var chrome = require('selenium-webdriver/chrome');
 
 var options = new chrome.Options();
