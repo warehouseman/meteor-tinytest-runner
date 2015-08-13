@@ -10,6 +10,7 @@ export THIS=meteor-tinytest-runner
 echo "Installing ${THIS} in current directory -- $(pwd)."
 cd $(dirname $0)
 chmod a+x ./tests/tinyTests/install_dependencies.sh
-rm -f ${THIS}.run
-rm -f install-meteor-tinytest-runner.sh
-./tests/tinyTests/install_dependencies.sh
+if ./tests/tinyTests/install_dependencies.sh; then
+	rm -f ${THIS}.run
+	rm -f install-meteor-tinytest-runner.sh
+fi

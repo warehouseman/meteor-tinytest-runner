@@ -17,9 +17,22 @@ installIfNotInstalled () {
   echo;
 }
 
+meteorProjIfNotMeteorProj () {
+	echo "Checking for a Meteor project.";
+	if [ ! -d "projMeteor" ]; then
+		echo "Making a Meteor project.";
+		meteor create projMeteor
+		cd projMeteor
+		meteor create --package yours:skeleton
+		cd ..
+	fi
+}
+
 installIfNotInstalled "makeself"
 
-mkdir -p tryMTRInst
+meteorProjIfNotMeteorProj
+
+cp -R projMeteor tryMTRInst
 mkdir -p meteor-tinytest-runner_bk
 cp rebuild-meteor-tinytest-runner-installer.sh ./meteor-tinytest-runner
 cp -R ./meteor-tinytest-runner/* ./meteor-tinytest-runner_bk/
