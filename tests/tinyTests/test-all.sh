@@ -8,7 +8,12 @@ else
 fi
 
 # Packages with tests. To ignore a package, place // NOTEST after the onTest definition.
-PACKAGES=$( $GREP -PRl 'Package\.(onTest|on_test)(?!.*// NOTEST)' packages | $GREP -Po 'packages/\K.*(?=/)' | sort -u )
+PACKAGES=$( $GREP -PRl 'Package\.(onTest|on_test)(?!.*// NOTEST)' packages | $GREP -Po 'packages/\K.*(?=/)' | sort -u );
+
+if [[ $(wc -l <<< "${PACKAGES}") -lt 1 ]]; then 
+  echo "Found no packages to test.";
+  exit 1;
+fi;
 
 SCRIPT_DIR="$( dirname "${BASH_SOURCE[0]}" )"
 
