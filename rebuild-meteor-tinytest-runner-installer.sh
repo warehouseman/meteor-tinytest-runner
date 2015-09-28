@@ -8,8 +8,8 @@
 installIfNotInstalled () {
   PKG=$1
   PKG_OK=$(dpkg-query -W --showformat='${Status}\n' ${PKG}  2>/dev/null | grep "install ok installed")
-  echo "Checking for ${PKG}: ${PKG_OK}"
-  if [ "" == "${PKG_OK}" ]; then
+  echo "Checking for ${PKG}: ${PKG_OK}";
+  if [ "" = "${PKG_OK}" ]; then
     echo "No ${PKG}. Please run the following command: "
     echo "sudo apt-get install ${PKG}"
     exit 1;
