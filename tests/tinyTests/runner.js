@@ -55,7 +55,9 @@ driver.get('http://127.0.0.1:4096').then(function() {
           driver.manage().logs().get('browser').then(function (log) {
             for (var index in log) {
               var entry = log[index];
-              console.log("    [" + entry.level.name + "] " + entry.message);
+              if (entry.message.indexOf("favicon") < 1) {
+                console.log("    [" + entry.level.name + "] " + entry.message);
+              }
             }
 
             driver.quit().then(function() {
