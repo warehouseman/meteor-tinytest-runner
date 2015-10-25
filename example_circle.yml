@@ -18,7 +18,7 @@ dependencies:
   # Dependencies of the build run before CircleCI's inferred commands
   pre:
     # If WebDriver is already cached, do not need to build it again.
-    - if [ ! -d ${HOME}/node_modules/selenium-webdriver/ ]; then ./tests/installSeleniumWebdriver.sh; else echo "Selenium Webdriver seems to be cached"; fi;
+    - if [ ! -d ${HOME}/node_modules/selenium-webdriver/ ]; then ./tests/tinyTests/ci/installSeleniumWebdriver.sh; else echo "Selenium Webdriver seems to be cached"; fi;
     # Install  Meteor
     - mkdir -p ${HOME}/.meteor
     # If Meteor is already cached, do not need to build it again.
