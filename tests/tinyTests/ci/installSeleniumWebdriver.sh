@@ -1,5 +1,6 @@
 #!/bin/bash
 #
+echo "Ready to upgrade g++ and install Selenium Webdriver."
 # This script  is necessary to fix a release discrepancy between
 # CircleCI and Selenium :
 #  - The current versaion of Selenium requires g++-4.8
