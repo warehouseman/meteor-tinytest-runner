@@ -23,7 +23,11 @@ run_meteor()
   ~/.meteor/meteor test-packages --once --driver-package 'test-in-console' -p 4096 ${PACKAGE} | tee ${LOG_DIR}/meteor.log
 }
 
+MAX_TRIES=5;
+TRIES=${MAX_TRIES};
+WAIT=5;
 while true; do
+
   # Spawn the test process.
   echo "  > Spawning test process..."
   # Redirect standard output to file descriptor #3 so we can wait for Meteor to get ready.
@@ -32,16 +36,17 @@ while true; do
   echo "  > Waiting for Meteor to start..."
   METEOR_STARTED=0
   while read line; do
-     case "$line" in
-     *listening*)
-        echo "  > Meteor seems ready, going to run tests in a moment."
-        METEOR_STARTED=1
-        sleep 5
-        break
-        ;;
-     *)
-        ;;
-     esac
+    case "$line" in
+    *listening*)
+      echo "  > Meteor seems ready, going to run tests in a moment."
+      METEOR_STARTED=1
+      sleep ${WAIT};
+      break
+      ;;
+    *)
+      ;;
+    esac
+
   done <&3
 
   if [ "${METEOR_STARTED}" == "1" ]; then
@@ -49,9 +54,20 @@ while true; do
   fi
 
   echo "  ? Failed to start Meteor, retrying."
+
+  TRIES=$((TRIES - 1));
+  if [[ ${TRIES} -gt 0 ]]; then
+    echo "Attempt #$((MAX_TRIES - TRIES + 1)).";
+  else
+    echo "Can't start Meteor.  Is there a fatal bug in your test code?";
+    exit 1;
+  fi;
+
   exec 3<&-
   killall node 2>/dev/null
   wait 2>/dev/null
+
+
 done
 
 # Drain file descriptor in the background. Otherwise the buffer may fill up and block I/O.
