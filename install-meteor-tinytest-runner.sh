@@ -2,7 +2,7 @@
 #
 # This installer was made with 'makeself' by Stéphane Peter (megastep at megastep.org)
 # The command used was :
-#    makeself --current . meteor-tinytest-runner.run "Installing meteor-tinytest-runner" ./install.sh
+#    makeself --current . meteor-tinytest-runner.bin "Installing meteor-tinytest-runner" ./install.sh
 # It expects be run in the target directory
 # To un-install execute ./tests/tinyTests/remove-meteor-tinytest-runner.sh
 #

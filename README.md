@@ -24,9 +24,9 @@ For a first try, **before running it in your project**, try the following comman
     # Have Meteor create a package skeleton
     meteor create --package you:your-pkg
     # Get Meteor Tinytest Runner
-    wget https://raw.githubusercontent.com/warehouseman/meteor-tinytest-runner/master/meteor-tinytest-runner.run
+    wget https://raw.githubusercontent.com/warehouseman/meteor-tinytest-runner/master/meteor-tinytest-runner.bin
     # Execute it
-    sh meteor-tinytest-runner.run
+    sh meteor-tinytest-runner.bin
     # Watch it run the package skeleton's default tests
     ./tests/tinyTests/test-all.sh
 
@@ -35,7 +35,7 @@ You should see the following :
     yourself@yourpc:~/projects$ # Have Meteor create an application skeleton
     yourself@yourpc:~/projects$ meteor create tryMTRInst
     tryMTRInst: created.
-    
+
     To run your new app:
       cd tryMTRInst
       meteor
@@ -45,20 +45,20 @@ You should see the following :
     yourself@yourpc:~/projects/tryMTRInst$ meteor create --package you:your-pkg
     you:your-pkg: created in packages/your-pkg
     yourself@yourpc:~/projects/tryMTRInst$ # Get Meteor Tinytest Runner
-    yourself@yourpc:~/projects/tryMTRInst$ wget https://raw.githubusercontent.com/warehouseman/meteor-tinytest-runner/master/meteor-tinytest-runner.run
-    --2015-08-04 22:33:27--  https://raw.githubusercontent.com/warehouseman/meteor-tinytest-runner/master/meteor-tinytest-runner.run
+    yourself@yourpc:~/projects/tryMTRInst$ wget https://raw.githubusercontent.com/warehouseman/meteor-tinytest-runner/master/meteor-tinytest-runner.bin
+    --2015-08-04 22:33:27--  https://raw.githubusercontent.com/warehouseman/meteor-tinytest-runner/master/meteor-tinytest-runner.bin
     Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 23.235.44.133
     Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|23.235.44.133|:443... connected.
     HTTP request sent, awaiting response... 200 OK
     Length: 377501 (369K) [application/octet-stream]
-    Saving to: ‘meteor-tinytest-runner.run’
-    
+    Saving to: ‘meteor-tinytest-runner.bin’
+
     100%[==================================================================================================================================>] 377,501     1.51MB/s   in 0.2s
-    
-    2015-08-04 22:33:28 (1.51 MB/s) - ‘meteor-tinytest-runner.run’ saved [377501/377501]
-    
+
+    2015-08-04 22:33:28 (1.51 MB/s) - ‘meteor-tinytest-runner.bin’ saved [377501/377501]
+
     yourself@yourpc:~/projects/tryMTRInst$ # Execute it
-    yourself@yourpc:~/projects/tryMTRInst$ sh meteor-tinytest-runner.run
+    yourself@yourpc:~/projects/tryMTRInst$ sh meteor-tinytest-runner.bin
     Verifying archive integrity... All good.
     Uncompressing Installing meteor-tinytest-runner  100%
     Installing meteor-tinytest-runner in current directory -- /home/yourself/projects/tryMTRInst.
@@ -99,7 +99,7 @@ Using a file browser in the application directory you willl see that the install
 
 Also, the installer deletes it's own support files.  So **another warning**, the installer will lose any files you have named:
 
-- meteor-tinytest-runner.run
+- meteor-tinytest-runner.bin
 - install-meteor-tinytest-runner.sh
 
 
@@ -115,7 +115,7 @@ To uninstall, execute ...
     Purging meteor-tinytest-runner from this filesystem.
     yourself@yourpc:~/projects/tryMTRInst$ tree
     .
-    
+
     0 directories, 0 files
     yourself@yourpc:~/projects/tryMTRInst$
 
@@ -135,10 +135,10 @@ This test runner really aims to be a CircleCI quickstart. To see it in action :
 
 The first build will take about a minute.  However, the build script checks for cached installations of Meteor and of Selenium WebDriver, and skips rebuilding when it finds them.  So, subsequent builds will run in about 45 seconds.
 
-## Recreating the file "meteor-tinytest-runner.run"
-Here is the specific ```makeself``` command used to build ```meteor-tinytest-runner.run```  ...
+## Recreating the file "meteor-tinytest-runner.bin"
+Here is the specific ```makeself``` command used to build ```meteor-tinytest-runner.bin```  ...
 
-    makeself --current . meteor-tinytest-runner.run "Installing meteor-tinytest-runner" ./install-meteor-tinytest-runner.sh
+    makeself --current . meteor-tinytest-runner.bin "Installing meteor-tinytest-runner" ./install-meteor-tinytest-runner.sh
 
 ... but when you run it, remember to run it in **a copy** of this project from which you have **removed the ```.git``` directory!**
 
@@ -151,12 +151,12 @@ To help out there is a script called ```rebuild-meteor-tinytest-runner-installer
     # Clone meteor-tinytest-runner.
     git clone git@github.com:warehouseman/meteor-tinytest-runner.git
     # Note the date and time of the installer
-    ls -l meteor-tinytest-runner/meteor-tinytest-runner.run
+    ls -l meteor-tinytest-runner/meteor-tinytest-runner.bin
     #  Eg:
-    #  -rwxrwxr-x 1 yourself yourself 70390 Aug  4 19:48 meteor-tinytest-runner/meteor-tinytest-runner.run
+    #  -rwxrwxr-x 1 yourself yourself 70390 Aug  4 19:48 meteor-tinytest-runner/meteor-tinytest-runner.bin
     # Copy the builder to the parent directory
     cp meteor-tinytest-runner/rebuild-meteor-tinytest-runner-installer.sh .
     # Run it.
     sh ./rebuild-meteor-tinytest-runner-installer.sh
     # Again, note the date and time of the installer
-    ls -l meteor-tinytest-runner/meteor-tinytest-runner.run
+    ls -l meteor-tinytest-runner/meteor-tinytest-runner.bin

@@ -41,15 +41,15 @@ pushd ./meteor-tinytest-runner_bk/;
 rm -f LICENSE
 rm -f README.md
 rm -f rebuild-meteor-tinytest-runner-installer.sh
-rm -f meteor-tinytest-runner.run
-makeself --current . meteor-tinytest-runner.run "Installing meteor-tinytest-runner" ./install-meteor-tinytest-runner.sh
-chmod a+x meteor-tinytest-runner.run
-cp meteor-tinytest-runner.run ../tryMTRInst/
-cp meteor-tinytest-runner.run ../meteor-tinytest-runner
+rm -f meteor-tinytest-runner.bin
+makeself --current . meteor-tinytest-runner.bin "Installing meteor-tinytest-runner" ./install-meteor-tinytest-runner.sh
+chmod a+x meteor-tinytest-runner.bin
+cp meteor-tinytest-runner.bin ../tryMTRInst/
+cp meteor-tinytest-runner.bin ../meteor-tinytest-runner
 popd;
 
 pushd ./tryMTRInst;
-./meteor-tinytest-runner.run
+./meteor-tinytest-runner.bin
 tree
 printf "Ready to test uninstall ? Hit <enter>."
 read _
