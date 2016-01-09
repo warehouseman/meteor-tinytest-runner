@@ -6,11 +6,13 @@
 # It expects be run in the target directory
 # To un-install execute ./tests/tinyTests/remove-meteor-tinytest-runner.sh
 #
+set -e;
+
 export THIS=meteor-tinytest-runner
 echo "Installing ${THIS} in current directory -- $(pwd)."
 cd $(dirname $0)
 chmod a+x ./tests/tinyTests/install_dependencies.sh
 if ./tests/tinyTests/install_dependencies.sh; then
-	rm -f ${THIS}.run
+	rm -f ${THIS}.bin
 	rm -f install-meteor-tinytest-runner.sh
 fi

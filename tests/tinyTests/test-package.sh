@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e;
+
 PACKAGE="$1"
 if [ -z "${PACKAGE}" ]; then
   echo "ERROR: No package specified."

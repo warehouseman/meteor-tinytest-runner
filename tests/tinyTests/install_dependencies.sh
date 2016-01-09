@@ -1,4 +1,7 @@
 #!/bin/bash
+
+set -e;
+
 echo "  -- Ready to install TinyTest runner dependencies."
 #
 export LOCAL_NODEJS=${HOME}
@@ -17,7 +20,7 @@ else
   else
     echo "No permissions to do this."
     echo "Please get ...
-       npm install -y --prefix ${LOCAL_NODEJS} ${MDL}; 
+       npm install -y --prefix ${LOCAL_NODEJS} ${MDL};
             ... to work properly.   For example try ...
        sudo chown -R ${USER}:${USER} ~/.npm"
     exit 1;

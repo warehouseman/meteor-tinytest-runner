@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e;
+
 # On Mac OS X GNU grep is ggrep.
 if hash ggrep 2>/dev/null; then
   GREP='ggrep'
